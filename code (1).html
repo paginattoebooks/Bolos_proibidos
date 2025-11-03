@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolos Proibidos - Receitas Saudáveis Sem Açúcar, Sem Leite, Sem Glúten</title>
+    <meta name="description" content="30 receitas de bolos saudáveis com sabor de confeitaria. Sem açúcar, sem leite, sem glúten. Aprenda a fazer bolos deliciosos e saudáveis.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF6F1;
+            --brown-light: #D4A574;
+            --brown-medium: #B8956A;
+            --mint: #0fb100;
+            --mint-dark: #104625;
+            --text-dark: #2C2416;
+            --text-medium: #5C5347;
+            --white: #FFFFFF;
+            --shadow: rgba(44, 36, 22, 0.08);
+            --shadow-hover: rgba(44, 36, 22, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--mint) 0%, var(--mint-dark) 100%);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--brown-medium) 0%, var(--brown-light) 100%);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px var(--shadow-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFF9F0 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-text .subtitle {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1s ease 0.3s backwards;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px var(--shadow-hover);
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: var(--mint);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Section Base */
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--white);
+        }
+
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--cream);
+            color: var(--text-medium);
+            font-size: 1.125rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .problem-list li::before {
+            content: '❌';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: linear-gradient(135deg, var(--mint) 0%, var(--mint-dark) 100%);
+            color: var(--white);
+        }
+
+        .solution h2,
+        .solution h3 {
+            color: var(--white);
+        }
+
+        .solution p {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-list {
+            list-style: none;
+        }
+
+        .solution-list li {
+            padding: 1rem 0;
+            font-size: 1.125rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .solution-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        /* Product Section */
+        .product {
+            background: var(--white);
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .product-features {
+            list-style: none;
+        }
+
+        .product-features li {
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            background: var(--cream);
+            border-radius: 12px;
+            font-size: 1.125rem;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 3.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .product-features li:hover {
+            transform: translateX(5px);
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 1.25rem;
+            color: var(--mint-dark);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--cream);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--mint);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: var(--cream);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--mint);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .stars {
+            color: var(--brown-light);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: linear-gradient(135deg, var(--cream) 0%, #ffffff 100%);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-card {
+            position: relative;
+            background: var(--white);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 50px rgba(0,0,0,.12);
+        }
+
+        .pricing-card.popular {
+            border: 3px solid var(--mint);
+            padding-top: 0;
+        }
+
+        .popular-badge {
+            position: static;
+            display: inline-block;
+            margin: -1.25rem auto 1rem;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%, -50%);
+            background: var(--mint);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--mint-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price small {
+            font-size: 1rem;
+            color: var(--text-medium);
+            font-weight: 400;
+        }
+
+        .plan-description {
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--cream);
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--mint-dark);
+            font-weight: 700;
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .guarantee-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: var(--cream);
+            border-radius: 20px;
+        }
+
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--cream);
+        }
+
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--cream);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--mint-dark);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Authority Section */
+        .authority {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .authority-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--mint-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-medium);
+            font-size: 1.125rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--mint-dark) 0%, var(--mint) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .final-cta h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--mint);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(135deg, hsl(19, 93%, 45%) 0%, #f0cb51 150%);
+            color: var(--white);
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        /* Image Styles */
+        .section-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content,
+            .problem-content,
+            .solution-content,
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                padding: 4rem 0 3rem;
+                min-height: auto;
+            }
+
+            .hero-cta {
+                align-items: stretch;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .cta-buttons {
+                align-items: stretch;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--mint);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            display: flex;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px var(--shadow-hover);
+        }
+    </style>
+</head>
+<body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        🔥 Oferta Promocional: Garanta seu acesso com desconto por tempo limitado!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Bolos Saudáveis com Sabor de Confeitaria</h1>
+                    <p class="subtitle">
+                        Sem Açúcar, Sem Leite, Sem Glúten.<br><br>
+                        Aprenda a preparar <strong>30 receitas seguras, gostosas e fáceis</strong> — mesmo que você nunca tenha acertado um bolo saudável na vida.
+                    </p>
+                    <div class="hero-cta">
+                        <span class="subtitle">Por apenas de R$ 1,99</span>
+                        <a href="https://somasoundsolutions.mycartpanda.com/checkout/201190734:1" class="btn btn-primary">
+                            Começar por apenas R$ 1,99
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://i.pinimg.com/1200x/a0/91/3c/a0913c616513bae70c13658c4ebedc7e.jpg" alt="Bolo saudável e fofo servido com frutas frescas em um ambiente claro e acolhedor, demonstrando textura perfeita e aparência apetitosa" class="section-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-title">
+                <h2>Você está cansada de...</h2>
+                <p>Sabemos o quanto é frustrante quando as coisas não funcionam</p>
+            </div>
+            <div class="problem-content">
+                <div class="problem-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03f19837-1741-4361-b133-d889c197168d.png" alt="Pessoa frustrada olhando para um bolo saudável ressecado e sem aparência apetitosa sobre uma mesa de cozinha" class="section-image">
+                </div>
+                <div class="problem-text">
+                    <h3>A frustração de receitas que não funcionam</h3>
+                    <ul class="problem-list">
+                        <li>Receitas saudáveis que ficam ressecadas e sem gosto</li>
+                        <li>Ingredientes caros que você usa e o resultado decepciona</li>
+                        <li>Passar horas na cozinha para jogar tudo fora</li>
+                        <li>Sentir culpa toda vez que come um doce tradicional</li>
+                        <li>Ver sua família torcer o nariz para suas tentativas saudáveis</li>
+                        <li>Desistir de comer bolo por causa das restrições alimentares</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Imagine poder comer doce sem culpa, inflamação ou medo</h2>
+                <p>É possível ter o melhor dos dois mundos: sabor e saúde</p>
+            </div>
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h3>Bolo gostoso, textura perfeita e seguro para sua saúde</h3>
+                    <ul class="solution-list">
+                        <li>Bolos fofinhos e úmidos que parecem de confeitaria</li>
+                        <li>Sua família vai achar que é bolo tradicional</li>
+                        <li>Sem inflamação, sem picos de glicose, sem culpa</li>
+                        <li>Ingredientes simples que você encontra facilmente</li>
+                        <li>Receitas testadas que REALMENTE funcionam</li>
+                        <li>Preparação fácil, mesmo para iniciantes</li>
+                    </ul>
+                </div>
+                <div class="solution-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f000a6ea-1c21-4568-9b66-0d5f14a92c86.png" alt="Família feliz compartilhando e saboreando um bolo saudável em uma mesa de jantar iluminada, todos sorrindo e aproveitando o momento" class="section-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section class="product">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bolos Proibidos – Edição Completa</h2>
+                <p>Tudo o que você precisa para fazer bolos saudáveis perfeitos</p>
+            </div>
+            <div class="product-showcase">
+                <div class="product-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0230516d-a409-47fe-ac6a-915f8463a0ee.png" alt="Mockup do e-book Bolos Proibidos sendo visualizado em tablet e smartphone com capa moderna mostrando um bolo saudável apetitoso" class="section-image">
+                </div>
+                <div class="product-details">
+                    <h3>O que você vai receber:</h3>
+                    <ul class="product-features">
+                        <li>30 receitas sem glúten, sem lactose, sem açúcar</li>
+                        <li>Preparo fácil com ingredientes simples</li>
+                        <li>Resultados reais: fofinhos, úmidos e saborosos</li>
+                        <li>Guia de substituições inteligentes</li>
+                        <li>Dicas profissionais de preparo</li>
+                        <li>Acesso imediato por e-mail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title" style="margin-top: 5rem;">
+                <h3>Como funciona?</h3>
+            </div>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Compre com 1 clique</h4>
+                    <p>Escolha seu plano e finalize a compra de forma segura</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Receba por e-mail</h4>
+                    <p>Acesso imediato ao e-book na sua caixa de entrada</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Escolha sua receita</h4>
+                    <p>Navegue pelas 30 receitas e escolha a que mais te agrada</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Prepare e aproveite</h4>
+                    <p>Siga o passo a passo e saboreie seu bolo perfeito</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secret Sauce Section -->
+    <section class="solution" style="padding: 4rem 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Diferencial que Faz Toda a Diferença</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h3 style="margin-bottom: 1.5rem;">Receitas testadas por quem vive com restrições reais</h3>
+                <p style="font-size: 1.25rem; line-height: 1.8;">
+                    Cada receita foi desenvolvida e testada por pessoas que <strong>realmente vivem</strong> com restrições alimentares e já cansaram de errar na cozinha. Não é teoria — é experiência real.
+                </p>
+                <p style="font-size: 1.25rem; line-height: 1.8; margin-top: 1rem;">
+                    <strong>Aqui, tudo funciona — e agrada até quem não precisa comer saudável.</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Benefícios que Vão Transformar Sua Relação com a Comida</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">✅</div>
+                    <h4>30 Receitas Testadas</h4>
+                    <p>Cada receita foi testada múltiplas vezes para garantir resultado perfeito toda vez que você fizer</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Zero Erro ou Frustração</h4>
+                    <p>Passo a passo claro e detalhado. Se você seguir, vai dar certo — garantido</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🛒</div>
+                    <h4>Ingredientes Acessíveis</h4>
+                    <p>Nada de ingredientes impossíveis de encontrar. Tudo disponível em supermercados comuns</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💚</div>
+                    <h4>Sem Inflamação, Sem Culpa</h4>
+                    <p>Aproveite seus bolos sabendo que está cuidando da sua saúde</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎂</div>
+                    <h4>Sabor Real de Confeitaria</h4>
+                    <p>Suas visitas vão perguntar onde você comprou. Não vão acreditar que é saudável</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Preparo Rápido</h4>
+                    <p>A maioria das receitas leva menos de 1 hora do início ao fim</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Dizem Quem Já Transformou a Cozinha</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Voltei só pra dizer: FUNCIONA! Fiz o bolo de chocolate e minha família não acreditou que era sem açúcar. Já fiz 5 receitas diferentes e todas perfeitas!"
+                    </p>
+                    <p class="testimonial-author">— Mariana S., São Paulo</p>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Até meu marido, que é MUITO exigente, achou que era bolo tradicional. Agora ele pede toda semana! Melhor investimento que fiz na minha saúde."
+                    </p>
+                    <p class="testimonial-author">— Carolina R., Rio de Janeiro</p>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Eu tenho diabetes e estava desesperada. Esse e-book mudou minha vida! Agora posso comer bolo sem medo e sem culpa. As receitas são simples e deliciosas!"
+                    </p>
+                    <p class="testimonial-author">— Fernanda L., Belo Horizonte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Escolha Seu Plano</h2>
+                <p>Investimento acessível para transformar sua alimentação</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Essencial</h3>
+                     <div class="hero-image">
+                     <img src="Red Beige Vintage Elegant Dinner Party Invitation52.png" alt="Plano Essencial" class="section-image">
+                     <div class="plan-price">R$ 1,99</div>
+                     <p class="plan-description">Perfeito para começar sua jornada saudável</p>
+                     <ul class="plan-features">
+                        <li>30 receitas de bolos completas</li>
+                        <li>Passo a passo detalhado</li>
+                        <li>Ingredientes simples</li>
+                        <li>Acesso imediato</li>
+                        <li>Garantia de 7 dias</li>
+                    </ul>
+                    <a href="https://somasoundsolutions.mycartpanda.com/checkout/201190734:1" class="btn btn-secondary" style="width: 100%;">
+                        Quero o Essencial</a>
+                    </a>
+                </div>
+                
+
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MAIS POPULAR</div>
+                    <h3 class="plan-name">Completo</h3>
+                    <img src="Red Beige Vintage Elegant Dinner Party Invitation.png" alt="Plano Completo" class="section-image">
+                    <div class="plan-price">R$ 7,99</div>
+                    <p class="plan-description">Tudo que você precisa para dominar a culinária saudável</p>
+                    <ul class="plan-features">
+                        <li>30 receitas de bolos</li>
+                        <li><strong>Bônus: Pães e Roscas</strong></li>
+                        <li><strong>Bônus: Doces Sem Açúcar</strong></li>
+                        <li><strong>Bônus: Lanches Rápidos</strong></li>
+                        <li>Guia de substituições</li>
+                        <li>Dicas profissionais</li>
+                        <li>Acesso vitalício</li>
+                        <li>Garantia de 7 dias</li>
+                        <li><strong>+ de 99 receitas no total</strong></li>
+                    </ul>
+                    <a href="https://somasoundsolutions.mycartpanda.com/checkout/201192491:1" class="btn btn-primary" style="width: 100%;">
+                        Quero o Pacote Completo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-icon">🛡️</div>
+                <h2>Garantia de 7 Dias</h2>
+                <p>
+                    Compra 100% segura. Se por qualquer motivo você não gostar do conteúdo, 
+                    devolvemos seu dinheiro sem fazer perguntas. Sem burocracia.
+                </p>
+                <p style="margin-top: 1.5rem; font-weight: 600;">
+                    Você não tem nada a perder — e tem uma vida mais saudável e saborosa para ganhar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>É mesmo sem açúcar, leite e glúten?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Sim! Todas as 30 receitas são 100% sem açúcar refinado, sem lactose e sem glúten. 
+                            Usamos adoçantes naturais e ingredientes alternativos que garantem sabor e textura perfeitos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso fazer mesmo sem saber cozinhar?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Com certeza! As receitas foram desenvolvidas pensando em iniciantes. 
+                            Cada passo é explicado de forma clara e simples. Se você consegue seguir instruções, 
+                            você vai conseguir fazer nossos bolos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>É seguro para quem tem diabetes ou intolerâncias?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Sim! As receitas foram desenvolvidas justamente pensando em pessoas com restrições alimentares. 
+                            Não usamos açúcar refinado, glúten ou lactose. Mas sempre recomendamos que você consulte 
+                            seu médico ou nutricionista para adequar às suas necessidades específicas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para preparar?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            A maioria das receitas leva entre 40 minutos a 1 hora do início ao fim, incluindo o tempo de forno. 
+                            Temos também opções express para quando você está com pressa.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como recebo o e-book?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Imediatamente após a confirmação do pagamento, você recebe o e-book no e-mail cadastrado. 
+                            O acesso é instantâneo e você pode começar a fazer suas receitas hoje mesmo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso pagar com Pix, cartão?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Sim! Aceitamos todas as formas de pagamento: cartão de crédito, débito, Pix. 
+                            Você escolhe a que for mais conveniente para você.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authority Section -->
+    <section class="authority">
+        <div class="container">
+            <div class="section-title">
+                <h2>Confiança e Resultados Comprovados</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.25rem; margin-bottom: 3rem;">
+                    Desenvolvido por especialistas em nutrição funcional e culinária saudável. 
+                    Nossas receitas já transformaram a vida de milhares de pessoas.
+                </p>
+            </div>
+            <div class="authority-stats">
+                <div class="stat">
+                    <div class="stat-number">10.000+</div>
+                    <div class="stat-label">Pessoas transformadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Receitas testadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Taxa de satisfação</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Você Merece Voltar a Comer Bolo com Prazer</h2>
+            <p>Sem culpa. Sem erro. Sem frustração.</p>
+            <div class="cta-buttons">
+                <a href="https://somasoundsolutions.mycartpanda.com/checkout/201190734:1" class="btn btn-secondary">
+                    Começar por apenas R$ 1,99
+                </a>
+                <a href="https://somasoundsolutions.mycartpanda.com/checkout/201192491:1" class="btn btn-primary">
+                    Levar pacote completo por R$ 7,99
+                </a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1rem;">
+                ✓ Acesso imediato   |   ✓ Garantia de 7 dias   |   ✓ Pagamento seguro
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Nutra Digital</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        Receitas que cuidam da sua saúde com sabor
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Úteis</h4>
+                    <ul class="footer-links">
+                        <li><a href="#faq">Perguntas Frequentes</a></li>
+                        <li><a href="mailto:[email protected]">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suporte</h4>
+                    <p style="color: rgba(255, 255, 255, 0.8);">
+                        E-mail: paginattosuporte@gmail.com<br>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Nutra Digital. Todos os direitos reservados.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+                    Pagamentos processados por Cartpanda Inc, 555 Republic Dr, Plano, Texas, 75074, USA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    faqItem.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
